@@ -30,10 +30,9 @@ namespace CalculatorAPI.Controllers
         [HttpGet(template: "divid")]
         public IActionResult GetDivid([FromQuery] int a, [FromQuery] int b)
         {
-            if (b == 0)
-                return BadRequest(new { message = "b no puede " });
-            var result  = a / b;
-            return Ok(new{a,b,result});
+            if (b == 0) return BadRequest(new { message = "b no puede ser 0." });
+            var result = a / b;
+            return Ok(new { a, b, result });
         }
     }
 
